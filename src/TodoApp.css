@@ -46,6 +46,7 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+   
   }
   
   .strick {
@@ -55,8 +56,17 @@
   
   .task span {
     cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
   }
-  
+  .task span:hover {
+    max-width: 100%;
+  }
+  .sorting{
+   margin: 10px;
+  }
   .task button {
     background-color: #ff4d4d;
     color: white;

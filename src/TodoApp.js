@@ -10,7 +10,19 @@ function TodoApp() {
       const currentdate = new Date();
       setTasks([...tasks, { text: inputValue, completed: false, dateTime: currentdate }]);
       setInputValue('');
+     
     }
+  };
+  const taskSort = () => {
+    const sortedTasks = [...tasks].sort((a ,b) => a.text > b.text ? 1 : -1); 
+    
+    setTasks(sortedTasks)
+  };
+  
+  const ztaskSort = () => {
+    const sortedTasks = [...tasks].sort((a ,b) => a.text < b.text ? 1 : -1); 
+    
+    setTasks(sortedTasks)
   };
 
   const deleteTask = (index) => {
@@ -42,7 +54,9 @@ function TodoApp() {
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <button onClick={addTask}>Add</button>
+        <button onClick={addTask} >Add</button> <br/>
+        <button onClick={taskSort} className='sorting'>A-Z Sort</button> 
+        <button onClick={ztaskSort} className='sorting'>Z-A Sort</button>
       </div>
       <ul className="task-list">
         {tasks.map((item, index) => (
@@ -50,10 +64,16 @@ function TodoApp() {
             <span
               onClick={() => toggleTaskCompletion(index)}
               className={item.completed ? "strick" : ""}
+              title={item.text}
             >
               {item.text}
+             
             </span>
-            <span>{item.dateTime.toLocaleString()}</span>
+            <span 
+             title={item.dateTime }
+            className={item.completed ? "strick" : ""}
+            onClick={() => toggleTaskCompletion(index)}
+            >{item.dateTime.toLocaleString()}</span>
             <button onClick={() => deleteTask(index)} >Delete</button>
           </li>
         ))}
