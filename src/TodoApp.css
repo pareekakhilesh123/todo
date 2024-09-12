@@ -1,83 +1,104 @@
 .todo-app {
-    width: 400px;
-    margin: 50px auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.input-container button {
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #33b0d2;
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.input-container button:hover {
+  background-color: #218838;
+}
+.errormessage{
+  font-size: small;
+  color: #cf0000;
+  /* margin-top: -12px; */
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+ 
+}
+
+.strick {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.task span {
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   }
+.task span:hover {
+  max-width: 100%;
+}
+.sorting{
+ margin-top: 3px;
+ margin-left: 10px;
+ 
+}
+.task button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.task button:hover {
+  background-color: #e60000;
+}
+
+
+ button :disabled,
+button[disabled]{
+  color:#000000;
+  background-color: #615656;
+  cursor: not-allowed;
+
+}
+button :disabled,
+button[disabled]{
+  color:#000000;
+  background-color: #615656;
+  cursor: not-allowed;
   
-  .input-container {
-    margin-bottom: 20px;
-  }
-  
-  .input-container input {
-    padding: 10px;
-    width: 70%;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .input-container button {
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .input-container button:hover {
-    background-color: #218838;
-  }
-  
-  .task-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-   
-  }
-  
-  .strick {
-    text-decoration: line-through;
-    color: grey;
-  }
-  
-  .task span {
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    
-  }
-  .task span:hover {
-    max-width: 100%;
-  }
-  .sorting{
-   margin: 10px;
-  }
-  .task button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .task button:hover {
-    background-color: #e60000;
-  }
-  
+}
