@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './TodoApp.css';
 
 function TodoApp() {
   const [inputValue, setInputValue] = useState('');
   const [tasks, setTasks] = useState([]);
-  const [searchText, setSearchText] = useState('');  
+  const [searchText, setSearchText] = useState('');
   const [sortorder, setSortOrder] = useState('asc');
 
   const addTask = () => {
@@ -53,7 +53,7 @@ function TodoApp() {
     setTasks(newTasks);
   };
 
- 
+  // Filter tasks based on search input
   const filteredTasks = tasks.filter((task) =>
     task.text.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -103,25 +103,30 @@ function TodoApp() {
       </div>
 
       <ul className="task-list">
-        {filteredTasks.map((item, index) => (
-          <li key={index} className="task">
-            <span
-              onClick={() => toggleTaskCompletion(index)}
-              className={item.completed ? 'strick' : ''}
-              title={item.text}
-            >
-              {item.text}
-            </span>
-            <span
-              title={item.dateTime}
-              className={item.completed ? 'strick' : ''}
-              onClick={() => toggleTaskCompletion(index)}
-            >
-              {item.dateTime.toLocaleString()}
-            </span>
-            <button onClick={() => deleteTask(index)}>Delete</button>
-          </li>
-        ))}
+        {filteredTasks.map((item, index) => {
+          // Find the actual index of the task in the `tasks` array
+          const actualIndex = tasks.findIndex((task) => task === item);
+
+          return (
+            <li key={actualIndex} className="task">
+              <span
+                onClick={() => toggleTaskCompletion(actualIndex)}
+                className={item.completed ? 'strick' : ''}
+                title={item.text}
+              >
+                {item.text}
+              </span>
+              <span
+                title={item.dateTime}
+                className={item.completed ? 'strick' : ''}
+                onClick={() => toggleTaskCompletion(actualIndex)}
+              >
+                {item.dateTime.toLocaleString()}
+              </span>
+              <button onClick={() => deleteTask(actualIndex)}>Delete</button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
